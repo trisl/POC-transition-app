@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">TransitionAnimation</string>
+  <string name="first_fragment">First fragment</string>
+  <string name="show_second_fragment">Show second fragment</string>
+  <string name="second_fragment">Second fragment</string>
+  <string name="show_first_fragment">Show first fragment</string>
+
+  <string name="image_transition">ImageTransition</string>
+  <string name="button_transition">ButtonTransition</string>
+</resources>

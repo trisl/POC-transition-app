@@ -13,21 +13,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_second.view.*
 
-class SecondFragment : Fragment() {
+class SecondFragment : MotherOfFragment(Gravity.END) {
 
     private lateinit var button: TextView
-    private lateinit var image: ImageView
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setAnimation()
-        sharedElementEnterTransition = ChangeBounds()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_second, container, false).apply {
                 button = this.show_other_fragment
-                this@SecondFragment.image = this.image
             }
 
 
@@ -38,25 +30,6 @@ class SecondFragment : Fragment() {
     }
 
     private fun configAction() {
-        button.setOnClickListener {
-            /*fragmentManager?.beginTransaction()
-                    ?.replace(R.id.main_view, FirstFragment())
-                    ?.addSharedElement(image, image.transitionName)
-                    ?.addSharedElement(button, button.transitionName)
-                    ?.commit()*/
-            activity?.onBackPressed()
-        }
-    }
-
-    private fun setAnimation() {
-        val slide = Slide(Gravity.END).apply {
-            duration = 300
-            interpolator = AccelerateDecelerateInterpolator()
-        }
-
-        enterTransition = slide
-        reenterTransition = slide
-        returnTransition = slide
-        exitTransition = slide
+        button.setOnClickListener { activity?.onBackPressed() }
     }
 }
